@@ -1,5 +1,10 @@
-require "bundler/setup"
-require "fluent/plugin/prometheus_pushgateway"
+require 'bundler/setup'
+require 'fluent/test'
+require 'fluent/test/helpers'
+
+# Disable Test::Unit
+Test::Unit::AutoRunner.need_auto_run = false
+Fluent::Test.setup
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
