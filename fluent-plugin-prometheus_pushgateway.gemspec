@@ -20,4 +20,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.license = "Apache-2.0"
+
+  spec.add_dependency "fluent-plugin-prometheus", ">= 1.7.0", "< 2.0.0"
+  spec.add_dependency "prometheus-client", "< 0.10"
+
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "test-unit"
 end
