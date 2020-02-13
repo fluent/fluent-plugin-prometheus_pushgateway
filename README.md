@@ -28,6 +28,20 @@ $ gem install fluent-plugin-prometheus_pushgateway
 
 **See also [fluent-plugin-prometheus](https://github.com/fluent/fluent-plugin-prometheus)**.
 
+```
+<match>
+  @type prometheus_pushgateway
+  job_name fluentd_prometheus_pushgateway
+</match>
+```
+
+More configuration parameters:
+
+- `gateway`: binding interface (default: 'http://localhost:9091')
+- `job_name`: job name. this value must be a unique (required)
+- `instance`: instance name (default: nil)
+- `push_interval`: the interval of pushing data to pushgateway (default: 3)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
