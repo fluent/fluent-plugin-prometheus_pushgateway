@@ -40,7 +40,7 @@ More configuration parameters:
 - `gateway`: binding interface (default: 'http://localhost:9091')
 - `job_name`: job name. this value must be a unique (required)
 - `instance`: instance name (default: nil)
-- `push_interval`: the interval of pushing data to pushgateway
+- `push_interval`: the interval of pushing data to pushgateway (default: 3)
 
 ## Development
 
