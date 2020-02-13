@@ -1,5 +1,3 @@
-require "fluent/plugin/prometheus_pushgateway/version"
-
 module Fluent
   module Plugin
     module PrometheusPushgateway

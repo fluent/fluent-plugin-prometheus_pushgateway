@@ -1,8 +1,6 @@
-require_relative 'lib/fluent/plugin/prometheus_pushgateway/version'
-
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-prometheus_pushgateway"
-  spec.version       = Fluent::Plugin::PrometheusPushgateway::VERSION
+  spec.version       = "0.0.1"
   spec.authors       = ["Yuta Iwama"]
   spec.email         = ["ganmacs@gmail.com"]
 
