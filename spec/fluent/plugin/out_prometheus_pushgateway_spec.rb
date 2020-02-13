@@ -6,7 +6,7 @@ RSpec.describe Fluent::Plugin::PrometheusPushgatewayOutput do
     describe 'valid' do
       it 'creates successfully' do
         config = %[
-          type prometheus_pushgateway
+          @type prometheus_pushgateway
           job_name name
         ]
         driver = Fluent::Test::Driver::Output.new(described_class)
@@ -14,7 +14,7 @@ RSpec.describe Fluent::Plugin::PrometheusPushgatewayOutput do
       end
 
       it 'raises an error when job name does not exist' do
-        config = 'type prometheus_pushgateway'
+        config = '@type prometheus_pushgateway'
         driver = Fluent::Test::Driver::Output.new(described_class)
         expect { driver.configure(config) }.to raise_error(Fluent::ConfigError)
       end
