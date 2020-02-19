@@ -22,7 +22,7 @@ begin
 rescue LoadError
   # compatible layer for fluentd v1.9.1 or earlier
   # https://github.com/fluent/fluentd/pull/2802
-  require 'fluent/plugin/tls'
+  require_relative 'prometheus_pushgateway/tls'
 end
 
 module Fluent
