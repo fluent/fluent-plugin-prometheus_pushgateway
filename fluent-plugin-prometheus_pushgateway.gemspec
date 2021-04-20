@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.license = "Apache-2.0"
 
-  spec.add_dependency "fluent-plugin-prometheus", ">= 1.7.0", "< 2.0.0"
+  spec.add_dependency "fluent-plugin-prometheus", ">= 2.0.0", "< 2.1.0"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
