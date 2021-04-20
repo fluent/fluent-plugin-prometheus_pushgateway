@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-prometheus_pushgateway"
-  spec.version       = "0.0.2"
+  spec.version       = File.read("VERSION").strip
   spec.authors       = ["Yuta Iwama"]
   spec.email         = ["ganmacs@gmail.com"]
 
