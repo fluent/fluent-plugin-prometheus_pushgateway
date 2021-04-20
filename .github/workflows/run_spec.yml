@@ -5,15 +5,21 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        ruby_version: [2.4.x, 2.5.x, 2.6.x, 2.7.x]
+        ruby_version: [2.5, 2.6, 2.7, 3.0]
+        experimental: [false]
+        include:
+          - ruby_version: head
+            os: ubuntu-latest
+            experimental: true
     env:
       LANG: en_US.UTF-8
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Ruby ${{  matrix.ruby_version }}
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
     - name: Install dependencies
