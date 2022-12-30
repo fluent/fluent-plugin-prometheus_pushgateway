@@ -15,6 +15,7 @@
 #
 
 require 'prometheus/client/push'
+require 'prometheus/client/version'
 require 'fluent/plugin/output'
 
 begin
@@ -69,7 +70,12 @@ module Fluent
       def configure(conf)
         super
 
-        @push_client = ::Prometheus::Client::Push.new("#{@job_name}:#{fluentd_worker_id}", @instance, @gateway)
+        if Prometheus::Client::VERSION.split(".")[0].to_i > 3
+          grouping_key = @instance ? {instance: @instance} : {}
+          @push_client = ::Prometheus::Client::Push.new(job: "#{@job_name}:#{fluentd_worker_id}", grouping_key: grouping_key, gateway: @gateway)
+        else
+          @push_client = ::Prometheus::Client::Push.new("#{@job_name}:#{fluentd_worker_id}", @instance, @gateway)
+        end
 
         use_tls = gateway && (URI.parse(gateway).scheme == 'https')
 
