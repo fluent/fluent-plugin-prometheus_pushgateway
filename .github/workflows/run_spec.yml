@@ -21,7 +21,7 @@ jobs:
     env:
       LANG: en_US.UTF-8
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Ruby ${{  matrix.ruby_version }}
       uses: ruby/setup-ruby@v1
       with:
