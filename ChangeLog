@@ -1,3 +1,11 @@
+Release 0.1.1 - 2023/07/12
+
+ * CI: Update supported version of Ruby.
+   - Ruby 2.6 was dropped
+ * CI: Add GitHub Action to watch by dependabot (weekly).
+ * Stay on prometheus-client to 2.1.0.
+ * Relax required version of fluent-plugin-prometheus to 2.1.0.
+
 Release 0.1.0 - 2021/04/20
 
 　* Upgrade fluent-plugin-prometheus to 2.0
