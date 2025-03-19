@@ -22,8 +22,6 @@ Gem::Specification.new do |spec|
   spec.license = "Apache-2.0"
 
   spec.add_dependency "fluent-plugin-prometheus", ">= 2.0.0", "< 2.2.0"
-  # Need to fix to support 3.0 or later
-  spec.add_dependency "prometheus-client", "~> 2.1"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
