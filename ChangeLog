@@ -1,3 +1,11 @@
+Release 0.2.0 - 2025/03/21
+
+ * CI: Bump actions/checkout from v3 to v4.
+ * CI: Add Ruby 3.3/3.4 for CI.
+ * Support prometheus-client 3.0 or later.
+   - In the previous versions of fluent-plugin-prometheus was also restricted
+     to prometheus-client 2.x if you use with it.
+
 Release 0.1.1 - 2023/07/12
 
  * CI: Update supported version of Ruby.
