@@ -1,3 +1,8 @@
+Release 0.2.1 - 2025/03/26
+
+ * Fix runtime dependency to use with fluent-plugin-prometheus 2.2.0 or later.
+   Only dependency was fixed.
+
 Release 0.2.0 - 2025/03/21
 
  * CI: Bump actions/checkout from v3 to v4.
