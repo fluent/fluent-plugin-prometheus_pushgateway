@@ -5,30 +5,32 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  schedule:
+    - cron: '0 0 1 * *'
 
 jobs:
+  ruby-versions:
+    uses: ruby/actions/.github/workflows/ruby_versions.yml@master
+    with:
+      engine: cruby
+      min_version: 3.1
   build:
+    needs: ruby-versions
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: ${{ matrix.ruby == 'head' }}
     strategy:
       matrix:
-        ruby_version: [ '3.4', '3.3', '3.2', '3.1' ]
-        experimental: [false]
-        include:
-          - ruby_version: head
-            os: ubuntu-latest
-            experimental: true
+        ruby: ${{ fromJson(needs.ruby-versions.outputs.versions) }}
     env:
       LANG: en_US.UTF-8
     steps:
     - uses: actions/checkout@v6
-    - name: Set up Ruby ${{  matrix.ruby_version }}
+    - name: Set up Ruby ${{  matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby_version }}
+        ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
       run: |
-        gem install bundler --no-document
         bundle install --jobs 4 --retry 3
     - name: Run test
       run: |
